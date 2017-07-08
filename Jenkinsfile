@@ -20,6 +20,6 @@ node('docker') {
   }
 
   stage('deploy') {
-    sh 'rancher up -p -c -d --force-upgrade -s app-test helloworld'
+    sh 'rancher up -p -c -d --force-upgrade -s app helloworld'
   }
 }
