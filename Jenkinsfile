@@ -3,7 +3,7 @@ node('docker') {
   def commit_id
 
   stage('initialize') {
-    git([url: 'https://github.com/asgpha/node-js-sample.git', branch: 'master'])
+    git([url: 'https://github.com/ranjithkumar-s/node-js-sample.git', branch: 'master'])
 
     sh 'git rev-parse HEAD > .git/commit-id'
     commit_id = readFile('.git/commit-id').trim()
