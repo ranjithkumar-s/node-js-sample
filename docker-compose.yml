@@ -5,4 +5,4 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 3000:3000/tcp
+      - 3000:5000/tcp
