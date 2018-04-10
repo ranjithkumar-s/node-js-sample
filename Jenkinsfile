@@ -10,7 +10,7 @@ node('docker') {
   }
 
   stage('build') {
-    docker.withRegistry('http://192.168.10.103:5000') {
+    docker.withRegistry('http://192.168.10.102:5000') {
       app = docker.build('app/helloworld')
 
       stage('publish') {
