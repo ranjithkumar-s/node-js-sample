@@ -26,7 +26,7 @@ node('docker') {
   
   stage('Remove local images') {
         // remove docker images
-        sh("docker rmi -f 192.168.10.102:5000/helloworld:latest || :")
+        // sh("docker rmi -f 192.168.10.102:5000/helloworld:latest || :")
         sh("docker rmi -f 192.168.10.102:5000/helloworld:${commit_id} || :")
         sh("docker rmi -f helloworld:${commit_id} || :")
    }
