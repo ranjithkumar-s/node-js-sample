@@ -14,7 +14,7 @@ node('docker') {
       app = docker.build('app/helloworld')
 
       stage('publish') {
-        app.push(commit_id)
+        app.push('dev')
       }
     }
   }
