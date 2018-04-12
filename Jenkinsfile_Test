@@ -4,7 +4,7 @@ node('docker') {
   stage('publish') {
     sh 'docker tag 192.168.10.102:5000/helloworld:dev 192.168.10.102:5000/helloworld:test'
     sh 'docker push 192.168.10.102:5000/helloworld:test'
-    image = docker.image('192.168.10.102:5000/helloworld')
+    image = docker.image('192.168.10.102:5000/helloworld:test')
     image.pull()
   }
   
