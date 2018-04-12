@@ -1,17 +1,9 @@
 node('docker') {
-  def app
-  def commit_id
 
-  stage('build') {
-    docker.withRegistry('http://192.168.10.102:5000') {
-      app = docker.build('helloworld')
-
-      stage('publish') {
-        app.push(commit_id)
-      }
-    }
+  stage('publish') {
+    sh 'docker tag 192.168.10.102:5000/helloworld:dev 192.168.10.102:5000/helloworld:test'
   }
-
+  
   stage('deploy') {
     env.TAG = "test"
     sh 'rancher --env ${ENVID} up -p -d --upgrade -s app helloworld'
