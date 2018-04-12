@@ -10,7 +10,7 @@ node('docker') {
   
   stage('deploy') {
     env.TAG = "test"
-    sh 'rancher --env ${ENVID} up -p -d --upgrade -s app ${image}'
+    sh 'rancher --env ${ENVID} up -p -d --upgrade -s app helloworld:test'
   }
   
 }
