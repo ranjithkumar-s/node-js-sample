@@ -24,7 +24,7 @@ node('docker') {
     sh 'rancher --env ${ENVID} up -p -d --upgrade -s app helloworld'
   }
   
-  stage('Remove local images') {
+  stage('remove local images') {
         // remove docker images
         // sh("docker rmi -f 192.168.10.102:5000/helloworld:latest || :")
         sh("docker rmi -f 192.168.10.102:5000/helloworld:${commit_id} || :")
