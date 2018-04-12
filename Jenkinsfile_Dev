@@ -15,12 +15,13 @@ node('docker') {
 
       stage('publish') {
         app.push(commit_id)
+        app.push("dev")
       }
     }
   }
 
   stage('deploy') {
-    env.TAG = "dev"
+    env.TAG = "${commit_id}"
     sh 'rancher --env ${ENVID} up -p -d --upgrade -s app helloworld'
   }
   
