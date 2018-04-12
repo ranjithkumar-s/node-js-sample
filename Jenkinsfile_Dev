@@ -20,7 +20,7 @@ node('docker') {
   }
 
   stage('deploy') {
-    env.TAG = "${commit_id}"
+    env.TAG = "dev"
     sh 'rancher --env ${ENVID} up -p -d --upgrade -s app helloworld'
   }
   
